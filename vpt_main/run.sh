@@ -14,7 +14,7 @@ for seed in "42"; do
         MODEL.PROMPT.NUM_TOKENS "10" \
         MODEL.PROMPT.DEEP "False" \
         MODEL.PROMPT.DROPOUT "0.0" \
-        DATA.FEATURE "sup_vitb16_imagenet21k" \
+        DATA.FEATURE "sup_vitti16_imagenet21k" \
         SOLVER.BASE_LR "0.25" \
         SOLVER.WEIGHT_DECAY "0.001" \
         SEED ${seed} \

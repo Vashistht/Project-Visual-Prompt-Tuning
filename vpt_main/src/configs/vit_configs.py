@@ -100,3 +100,20 @@ def get_h14_config():
     config.classifier = 'token'
     config.representation_size = None
     return config
+
+# @hlwong: vit_ti_16 config addition
+# ref: https://huggingface.co/WinKawaks/vit-tiny-patch16-224/blob/main/config.json
+def get_ti16_config():
+    """Returns the ViT-Ti/16 configuration."""
+    config = ml_collections.ConfigDict()
+    config.patches = ml_collections.ConfigDict({'size': (16, 16)})
+    config.hidden_size = 192
+    config.transformer = ml_collections.ConfigDict()
+    config.transformer.mlp_dim = 192 * 4
+    config.transformer.num_heads = 3
+    config.transformer.num_layers = 12
+    config.transformer.attention_dropout_rate = 0.0
+    config.transformer.dropout_rate = 0.1
+    config.classifier = 'token'
+    config.representation_size = None
+    return config
