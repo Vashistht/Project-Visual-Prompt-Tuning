@@ -17,6 +17,7 @@ from ..solver.optimizer import make_optimizer
 from ..solver.losses import build_loss
 from ..utils import logging
 from ..utils.train_utils import AverageMeter, gpu_mem_usage
+import wandb
 
 logger = logging.get_logger("visual_prompt")
 
@@ -218,6 +219,9 @@ class Trainer():
                     data_time.avg, batch_time.avg)
                 + "average train loss: {:.4f}".format(losses.avg))
              # update lr, scheduler.step() must be called after optimizer.step() according to the docs: https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate  # noqa
+             # Log training loss to wandb
+            wandb.log({"train_loss": losses.avg, "epoch": epoch + 1})
+            
             self.scheduler.step()
 
             # Enable eval mode
@@ -227,10 +231,14 @@ class Trainer():
 
             # eval at each epoch for single gpu training
             self.evaluator.update_iteration(epoch)
-            self.eval_classifier(val_loader, "val", epoch == total_epoch - 1)
+            # self.eval_classifier(val_loader, "val", epoch == total_epoch - 1)
+            eval_metric = self.eval_classifier(val_loader, "val", epoch == total_epoch - 1)
+            wandb.log({"val_accuracy": eval_metric, "epoch": epoch + 1})  # Log validation accuracy
+            
             if test_loader is not None:
-                self.eval_classifier(
+                eval_metric = self.eval_classifier(
                     test_loader, "test", epoch == total_epoch - 1)
+                wandb.log({"test_accuracy": eval_metric, "epoch": epoch + 1})  # Optionally log test accuracy
 
             # check the patience
             t_name = "val_" + val_loader.dataset.name

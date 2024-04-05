@@ -22,6 +22,8 @@ from src.utils.file_io import PathManager
 
 from launch import default_argument_parser, logging_train_setup
 warnings.filterwarnings("ignore")
+import wandb
+
 
 
 def setup(args):
@@ -88,7 +90,8 @@ def train(cfg, args):
         torch.cuda.empty_cache()
 
     # main training / eval actions here
-
+    wandb.init(project="idl_project", entity="cmu-ml", config=cfg)
+    
     # fix the seed for reproducibility
     if cfg.SEED is not None:
         torch.manual_seed(cfg.SEED)
