@@ -20,7 +20,9 @@ cd /afs/ece.cmu.edu/usr/vashistt
 
 - setting up conda 
 ```
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh bash Miniconda3-latest-Linux-x86_64.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+chmod +x Miniconda3-latest-Linux-x86_64.sh
 
 nano ~/.bashrc
 
