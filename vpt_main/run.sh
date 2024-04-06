@@ -6,7 +6,7 @@ output_dir="out"
         
 # base_lr = 1.0
 # lr = base_lr / 256 * cfg.DATA.BATCH_SIZE
-for seed in "42"; do
+for seed in "22"; do
     python train.py \
         --config-file configs/prompt/cub.yaml \
         MODEL.TYPE "vit" \
@@ -17,6 +17,7 @@ for seed in "42"; do
         DATA.FEATURE "sup_vitti16_imagenet21k" \
         SOLVER.BASE_LR "0.25" \
         SOLVER.WEIGHT_DECAY "0.001" \
+	SOLVER.TOTAL_EPOCH "5" \
         SEED ${seed} \
         MODEL.MODEL_ROOT "${model_root}" \
         DATA.DATAPATH "${data_path}" \

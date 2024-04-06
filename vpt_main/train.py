@@ -90,7 +90,7 @@ def train(cfg, args):
         torch.cuda.empty_cache()
 
     # main training / eval actions here
-    wandb.init(project="idl_project", entity="cmu-ml", config=cfg)
+    wandb.init(project="idl_project", entity="mochaminds", name=f"{cfg.OUTPUT_DIR.replace('/', '-')}", config=cfg)
     
     # fix the seed for reproducibility
     if cfg.SEED is not None:

@@ -1,0 +1,357 @@
+{
+    "os": "Linux-3.10.0-1160.108.1.el7.x86_64-x86_64-with-redhat-7.9-Maipo",
+    "python": "3.7.16",
+    "heartbeatAt": "2024-04-06T18:29:57.248506",
+    "startedAt": "2024-04-06T18:29:56.663165",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--config-file",
+        "configs/prompt/cub.yaml",
+        "MODEL.TYPE",
+        "vit",
+        "DATA.BATCH_SIZE",
+        "64",
+        "MODEL.PROMPT.NUM_TOKENS",
+        "10",
+        "MODEL.PROMPT.DEEP",
+        "False",
+        "MODEL.PROMPT.DROPOUT",
+        "0.0",
+        "DATA.FEATURE",
+        "sup_vitti16_imagenet21k",
+        "SOLVER.BASE_LR",
+        "0.25",
+        "SOLVER.WEIGHT_DECAY",
+        "0.001",
+        "SOLVER.TOTAL_EPOCH",
+        "5",
+        "SEED",
+        "22",
+        "MODEL.MODEL_ROOT",
+        "backbones",
+        "DATA.DATAPATH",
+        "datasets/CUB_200_2011",
+        "OUTPUT_DIR",
+        "out/seed22"
+    ],
+    "state": "running",
+    "program": "train.py",
+    "codePathLocal": "train.py",
+    "codePath": "vpt_main/train.py",
+    "git": {
+        "remote": "https://github.com/Vashistht/Project-Visual-Prompt-Tuning.git",
+        "commit": "90efd589ad0ee9bcf321be177d55c0358ebc1ed7"
+    },
+    "email": null,
+    "root": "/afs/ece.cmu.edu/usr/hlwong/Private/18786/Project-Visual-Prompt-Tuning",
+    "host": "ece030.ece.local.cmu.edu",
+    "username": "hlwong",
+    "executable": "/afs/ece/usr/hlwong/miniconda3/envs/prompt/bin/python",
+    "cpu_count": 28,
+    "cpu_count_logical": 56,
+    "cpu_freq": {
+        "current": 2899.3466607142864,
+        "min": 1200.0,
+        "max": 3300.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.658,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2900.83,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2900.244,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2900.537,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.511,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.804,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2893.652,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2895.703,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.365,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.218,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2900.39,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2900.683,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.365,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2900.244,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.072,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2902.441,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.365,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2879.443,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.511,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.658,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        },
+        {
+            "current": 2899.951,
+            "min": 1200.0,
+            "max": 3300.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 118.33738327026367,
+            "used": 58.22568893432617
+        }
+    },
+    "gpu": "Tesla T4",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Tesla T4",
+            "memory_total": 16106127360
+        }
+    ],
+    "memory": {
+        "total": 251.5242042541504
+    }
+}
