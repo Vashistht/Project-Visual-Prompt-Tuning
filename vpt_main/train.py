@@ -108,7 +108,7 @@ def train(cfg, args):
     model, cur_device = build_model(cfg)
 
     logger.info("Setting up Evalutator...")
-    evaluator = Evaluator()
+    evaluator = Evaluator(cfg.SOLVER.TOTAL_EPOCH)
     logger.info("Setting up Trainer...")
     trainer = Trainer(cfg, model, evaluator, cur_device)
 

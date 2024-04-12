@@ -21,11 +21,12 @@ class Evaluator():
 
     def __init__(
         self,
+        total_epochs,
     ) -> None:
         self.results = defaultdict(dict)
         self.iteration = -1
         self.threshold_end = 0.5
-
+        self.total_epochs = total_epochs
     def update_iteration(self, iteration: int) -> None:
         """update iteration info"""
         self.iteration = iteration
@@ -114,4 +115,6 @@ class Evaluator():
         logger.info(f"Classification results with {eval_type}: {log_str}")
         # save everything
         wandb.log({f"{eval_type}_accuracy": log_results["top1"], "epoch": self.iteration + 1})  # Log accuracy
+        if (self.iteration + 1 == self.total_epochs):
+            wandb.log({f"{eval_type}_final_accuracy": log_results["top1"]})  # Log final accuracy
         self.update_result("classification", {eval_type: save_results})
