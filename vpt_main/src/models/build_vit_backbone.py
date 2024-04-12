@@ -40,6 +40,7 @@ MODEL_ZOO = {
     "mae_vitb16": "mae_pretrain_vit_base.pth",
     "mae_vitl16": "mae_pretrain_vit_large.pth",
     "sup_vitti16_imagenet21k": "imagenet21k_ViT-Ti_16.npz", # @hlwong: vit_ti_16 addition to model zoo
+    "sup_vits16_imagenet21k": "imagenet21k_ViT-S_16.npz", # @dbhegde: vit_s_16 addition to model zoo
 }
 
 
@@ -386,6 +387,7 @@ def build_vit_sup_models(
         "sup_vitl32_imagenet21k": 1024,
         "sup_vith14_imagenet21k": 1280,
 	"sup_vitti16_imagenet21k": 192, # @hlwong: vit_ti_16 dim addition to m2featdim (img size)
+	"sup_vits16_imagenet21k": 384, # @dbhegde: vit_s_16 dim addition to m2featdim (img size)
     }
     if prompt_cfg is not None:
         model = PromptedVisionTransformer(

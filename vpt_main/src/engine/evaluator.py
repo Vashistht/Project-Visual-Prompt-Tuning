@@ -7,6 +7,7 @@ from typing import List, Union
 from .eval import multilabel
 from .eval import singlelabel
 from ..utils import logging
+import wandb
 logger = logging.get_logger("visual_prompt")
 
 
@@ -72,7 +73,7 @@ class Evaluator():
             top1 and rocauc
         """
         acc_dict = singlelabel.compute_acc_auc(scores, targets)
-
+        wandb.log({"val_loss": acc_dict["top1"], "epoch": self.iteration + 1})  # Log validation accuracy
         log_results = {
             k: np.around(v * 100, decimals=2) for k, v in acc_dict.items()
         }
@@ -112,4 +113,5 @@ class Evaluator():
                 log_str += f"{k}: {list(result)}\t"
         logger.info(f"Classification results with {eval_type}: {log_str}")
         # save everything
+        wandb.log({f"{eval_type}_accuracy": log_results["top1"], "epoch": self.iteration + 1})  # Log accuracy
         self.update_result("classification", {eval_type: save_results})

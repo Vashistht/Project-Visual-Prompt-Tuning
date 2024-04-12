@@ -42,8 +42,9 @@ def setup(args):
     output_dir = cfg.OUTPUT_DIR
     lr = cfg.SOLVER.BASE_LR
     wd = cfg.SOLVER.WEIGHT_DECAY
+    nt = cfg.MODEL.PROMPT.NUM_TOKENS
     output_folder = os.path.join(
-        cfg.DATA.NAME, cfg.DATA.FEATURE, f"lr{lr}_wd{wd}")
+        cfg.DATA.NAME, cfg.DATA.FEATURE, f"num_tok{nt}_lr{lr}_wd{wd}")
 
     # train cfg.RUN_N_TIMES times
     count = 1

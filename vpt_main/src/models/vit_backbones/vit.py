@@ -39,6 +39,7 @@ CONFIGS = {
     'sup_vith14_imagenet21k': configs.get_h14_config(),
     # 'R50-ViT-B_16': configs.get_r50_b16_config(),
     "sup_vitti16_imagenet21k": configs.get_ti16_config(), # @hlwong: vit_ti_16 addition to CONFIGS
+    "sup_vits16_imagenet21k": configs.get_s16_config(), # @dbhegde: vit_ti_16 addition to CONFIGS
 } 
 
 ATTENTION_Q = "MultiHeadDotProductAttention_1/query"
