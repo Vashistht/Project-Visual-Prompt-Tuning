@@ -42,8 +42,9 @@ def setup(args):
     output_dir = cfg.OUTPUT_DIR
     lr = cfg.SOLVER.BASE_LR
     wd = cfg.SOLVER.WEIGHT_DECAY
+    nt = cfg.MODEL.PROMPT.NUM_TOKENS
     output_folder = os.path.join(
-        cfg.DATA.NAME, cfg.DATA.FEATURE, f"lr={lr}_wd={wd}_loc={cfg.MODEL.PROMPT.LOCATION}")
+    cfg.DATA.NAME, cfg.DATA.FEATURE, f"lr={lr}_wd={wd}_loc={cfg.MODEL.PROMPT.LOCATION}_numTok={nt}")
 
     # train cfg.RUN_N_TIMES times
     count = 1
@@ -107,7 +108,7 @@ def train(cfg, args):
     model, cur_device = build_model(cfg)
 
     logger.info("Setting up Evalutator...")
-    evaluator = Evaluator()
+    evaluator = Evaluator(cfg.SOLVER.TOTAL_EPOCH)
     logger.info("Setting up Trainer...")
     trainer = Trainer(cfg, model, evaluator, cur_device)
 

@@ -233,12 +233,12 @@ class Trainer():
             self.evaluator.update_iteration(epoch)
             # self.eval_classifier(val_loader, "val", epoch == total_epoch - 1)
             eval_metric = self.eval_classifier(val_loader, "val", epoch == total_epoch - 1)
-            wandb.log({"val_accuracy": eval_metric, "epoch": epoch + 1})  # Log validation accuracy
+            wandb.log({"val_loss": eval_metric, "epoch": epoch + 1})  # Log validation accuracy
             
             if test_loader is not None:
                 eval_metric = self.eval_classifier(
                     test_loader, "test", epoch == total_epoch - 1)
-                wandb.log({"test_accuracy": eval_metric, "epoch": epoch + 1})  # Optionally log test accuracy
+                wandb.log({"test_loss": eval_metric, "epoch": epoch + 1})  # Optionally log test accuracy
 
             # check the patience
             t_name = "val_" + val_loader.dataset.name
@@ -307,7 +307,7 @@ class Trainer():
                 logger.info("during eval: {}".format(X.shape))
             loss, outputs = self.forward_one_batch(X, targets, False)
             if loss == -1:
-                return
+                return -1
             losses.update(loss, X.shape[0])
 
             # measure elapsed time
@@ -350,3 +350,4 @@ class Trainer():
             torch.save(out, out_path)
             logger.info(
                 f"Saved logits and targets for {test_name} at {out_path}")
+        return losses.avg
