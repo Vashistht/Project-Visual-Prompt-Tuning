@@ -43,7 +43,7 @@ def setup(args):
     lr = cfg.SOLVER.BASE_LR
     wd = cfg.SOLVER.WEIGHT_DECAY
     output_folder = os.path.join(
-        cfg.DATA.NAME, cfg.DATA.FEATURE, f"lr{lr}_wd{wd}")
+        cfg.DATA.NAME, cfg.DATA.FEATURE, f"lr={lr}_wd={wd}_loc={cfg.MODEL.PROMPT.LOCATION}")
 
     # train cfg.RUN_N_TIMES times
     count = 1

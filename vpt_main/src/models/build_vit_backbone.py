@@ -7,7 +7,7 @@ from .vit_backbones.vit import VisionTransformer
 from .vit_backbones.vit_moco import vit_base
 from .vit_backbones.vit_mae import build_model as mae_vit_model
 
-from .vit_prompt.vit import PromptedVisionTransformer
+from .vit_prompt.vit_ablations import PromptedVisionTransformer # @hlwong: vit to vit_ablations?
 from .vit_prompt.swin_transformer import PromptedSwinTransformer
 from .vit_prompt.vit_moco import vit_base as prompt_vit_base
 from .vit_prompt.vit_mae import build_model as prompt_mae_vit_model
