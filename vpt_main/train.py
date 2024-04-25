@@ -45,7 +45,7 @@ def setup(args):
     nt = cfg.MODEL.PROMPT.NUM_TOKENS
     dl = cfg.MODEL.PROMPT.NUM_DEEP_LAYERS
     output_folder = os.path.join(
-        cfg.DATA.NAME, cfg.DATA.FEATURE, f"{dl}deep_num_tok{nt}_lr{lr}_wd{wd}")
+    cfg.DATA.NAME, cfg.DATA.FEATURE, f"{dl}deep_num_lr={lr}_wd={wd}_loc={cfg.MODEL.PROMPT.LOCATION}_numTok={nt}")
 
     # train cfg.RUN_N_TIMES times
     count = 1

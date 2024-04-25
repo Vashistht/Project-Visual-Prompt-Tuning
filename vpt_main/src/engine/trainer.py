@@ -227,7 +227,7 @@ class Trainer():
             # Enable eval mode
             self.model.eval()
 
-            self.save_prompt(epoch + 1)
+            # self.save_prompt(epoch + 1)
 
             # eval at each epoch for single gpu training
             self.evaluator.update_iteration(epoch)
@@ -258,6 +258,8 @@ class Trainer():
             if patience >= self.cfg.SOLVER.PATIENCE:
                 logger.info("No improvement. Breaking out of loop.")
                 break
+        
+        self.save_prompt(epoch + 1) # @hlwong: save prompt after training
 
         # save the last checkpoints
         # if self.cfg.MODEL.SAVE_CKPT:
