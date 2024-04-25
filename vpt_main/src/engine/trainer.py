@@ -259,7 +259,8 @@ class Trainer():
                 logger.info("No improvement. Breaking out of loop.")
                 break
         
-        self.save_prompt(epoch + 1) # @hlwong: save prompt after training
+        if self.cfg.SOLVER.TOTAL_EPOCH != 0:
+            self.save_prompt(epoch + 1) # @hlwong: save prompt after training
 
         # save the last checkpoints
         # if self.cfg.MODEL.SAVE_CKPT:

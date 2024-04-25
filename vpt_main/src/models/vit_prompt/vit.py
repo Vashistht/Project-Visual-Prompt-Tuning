@@ -23,7 +23,7 @@ logger = logging.get_logger("visual_prompt")
 class PromptedTransformer(Transformer):
     def __init__(self, prompt_config, config, img_size, vis):
         assert prompt_config.LOCATION == "prepend"
-        assert prompt_config.INITIATION == "random"
+        # assert prompt_config.INITIATION == "random"
         assert prompt_config.NUM_DEEP_LAYERS is None
         assert not prompt_config.DEEP_SHARED
         super(PromptedTransformer, self).__init__(
@@ -68,7 +68,13 @@ class PromptedTransformer(Transformer):
                     total_d_layer, num_tokens, prompt_dim))
                 # xavier_uniform initialization
                 nn.init.uniform_(self.deep_prompt_embeddings.data, -val, val)
-
+        elif self.prompt_config.INITIATION == "pretrained-prompt": # @hlwong: prompt config
+            saved_prompt = torch.load(self.prompt_config.PROMPT_PATH)
+            assert("shallow_prompt" in saved_prompt)
+            if "shallow_prompt" in saved_prompt and self.prompt_config.DEEP: 
+                raise ValueError("Pretrained-prompt with deep not supported")
+            self.prompt_embeddings = nn.Parameter(torch.tensor(saved_prompt["shallow_prompt"]))
+            print("PROMPT-CONFIG-INIT: pretrained-prompt: succesfully loaded saved prompt")  
         else:
             raise ValueError("Other initiation scheme is not supported")
 

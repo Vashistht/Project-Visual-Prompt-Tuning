@@ -3,6 +3,16 @@
 """Image transformations."""
 import torchvision as tv
 
+class AddGaussianNoise():
+    def __init__(self, mean=0., std=1.):
+        self.std = std
+        self.mean = mean
+        
+    def __call__(self, tensor):
+        return tensor + torch.randn(tensor.size()) * self.std + self.mean
+    
+    def __repr__(self):
+        return self.__class__.__name__ + '(mean={0}, std={1})'.format(self.mean, self.std)
 
 def get_transforms(split, size):
     normalize = tv.transforms.Normalize(
@@ -29,13 +39,23 @@ def get_transforms(split, size):
                 normalize,
             ]
         )
-    else:
+    elif split == "val":
         transform = tv.transforms.Compose(
             [
                 tv.transforms.Resize(resize_dim),
                 tv.transforms.CenterCrop(crop_dim),
                 tv.transforms.ToTensor(),
                 normalize,
+            ]
+        )
+    else: # test
+        transform = tv.transforms.Compose(
+            [
+                tv.transforms.Resize(resize_dim),
+                tv.transforms.CenterCrop(crop_dim),
+                tv.transforms.ToTensor(),
+                normalize,
+                AddGaussianNoise(0.0, 0.33), # @hlwong: add Gaussian noise
             ]
         )
     return transform

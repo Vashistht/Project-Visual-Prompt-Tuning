@@ -11,16 +11,15 @@ for seed in "22"; do
         --config-file configs/prompt/cub.yaml \
         MODEL.TYPE "vit" \
         DATA.BATCH_SIZE "64" \
-        MODEL.PROMPT.NUM_TOKENS "50" \
-        MODEL.PROMPT.DEEP "True" \
-        MODEL.PROMPT.NUM_DEEP_LAYERS "12" \
+        MODEL.PROMPT.NUM_TOKENS "0" \
+        MODEL.PROMPT.DEEP "False" \
         MODEL.PROMPT.DROPOUT "0.0" \
         MODEL.PROMPT.LOCATION "prepend" \
         MODEL.PROMPT.SAVE_FOR_EACH_EPOCH "True" \
         DATA.FEATURE "sup_vitti16_imagenet21k" \
-        SOLVER.BASE_LR "0.025" \
+        SOLVER.BASE_LR "0.25" \
         SOLVER.WEIGHT_DECAY "0.001" \
-	SOLVER.TOTAL_EPOCH "150" \
+	SOLVER.TOTAL_EPOCH "100" \
         SEED ${seed} \
         MODEL.MODEL_ROOT "${model_root}" \
         DATA.DATAPATH "${data_path}" \
