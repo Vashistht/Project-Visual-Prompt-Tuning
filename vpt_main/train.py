@@ -45,7 +45,7 @@ def setup(args):
     nt = cfg.MODEL.PROMPT.NUM_TOKENS
     dl = cfg.MODEL.PROMPT.NUM_DEEP_LAYERS
     output_folder = os.path.join(
-    cfg.DATA.NAME, cfg.DATA.FEATURE, f"{'deep=' + str(cfg.MODEL.PROMPT.NUM_DEEP_LAYERS) if cfg.MODEL.PROMPT.DEEP else 'shallow'}_num_lr={lr}_wd={wd}_loc={cfg.MODEL.PROMPT.LOCATION}_numTok={nt}")
+    cfg.DATA.NAME, cfg.DATA.FEATURE, f"{'deep=' + str(cfg.MODEL.PROMPT.NUM_DEEP_LAYERS) if cfg.MODEL.PROMPT.DEEP else 'shallow'}_num_lr={lr}_wd={wd}_loc={cfg.MODEL.PROMPT.LOCATION}_numTok={nt}_changePrompt={cfg.MODEL.PROMPT.CHANGE_PROMPT}_initiation={cfg.MODEL.PROMPT.INITIATION}")
 
     # train cfg.RUN_N_TIMES times
     count = 1
@@ -118,7 +118,7 @@ def train(cfg, args):
     else:
         print("No train loader presented. Exit")
 
-    if cfg.SOLVER.TOTAL_EPOCH == 0:
+    if cfg.MODEL.PROMPT.CHANGE_PROMPT:
         trainer.eval_classifier(test_loader, "test", 0)
 
 

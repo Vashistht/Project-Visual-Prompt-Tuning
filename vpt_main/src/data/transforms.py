@@ -2,6 +2,7 @@
 
 """Image transformations."""
 import torchvision as tv
+import torch
 
 class AddGaussianNoise():
     def __init__(self, mean=0., std=1.):
@@ -55,7 +56,7 @@ def get_transforms(split, size):
                 tv.transforms.CenterCrop(crop_dim),
                 tv.transforms.ToTensor(),
                 normalize,
-                AddGaussianNoise(0.0, 0.33), # @hlwong: add Gaussian noise
+                # AddGaussianNoise(0.0, 0.33), # @hlwong: add Gaussian noise
             ]
         )
     return transform

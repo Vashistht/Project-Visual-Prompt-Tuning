@@ -74,6 +74,7 @@ _C.MODEL.PROMPT.VIT_POOL_TYPE = "original"
 _C.MODEL.PROMPT.DROPOUT = 0.0
 _C.MODEL.PROMPT.SAVE_FOR_EACH_EPOCH = False
 _C.MODEL.PROMPT.PROMPT_PATH = "saved_prompts/prompt_ep100.pth"
+_C.MODEL.PROMPT.CHANGE_PROMPT = False
 # ----------------------------------------------------------------------
 # adapter options
 # ----------------------------------------------------------------------

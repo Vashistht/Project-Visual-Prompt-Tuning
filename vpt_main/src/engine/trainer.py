@@ -227,7 +227,7 @@ class Trainer():
             # Enable eval mode
             self.model.eval()
 
-            # self.save_prompt(epoch + 1)
+            self.save_prompt(epoch + 1)
 
             # eval at each epoch for single gpu training
             self.evaluator.update_iteration(epoch)
@@ -258,6 +258,14 @@ class Trainer():
             if patience >= self.cfg.SOLVER.PATIENCE:
                 logger.info("No improvement. Breaking out of loop.")
                 break
+
+        if self.cfg.MODEL.PROMPT.CHANGE_PROMPT:
+            loaded_prompt = torch.load(self.cfg.MODEL.PROMPT.PROMPT_PATH)
+            assert("shallow_prompt" in loaded_prompt)
+            if "shallow_prompt" in load_prompt and self.cfg.MODEL.PROMPT.DEEP:
+                raise ValueError("Loading pretrained prompt with deep not supported")
+            self.model.enc.transformer.prompt_embeddings = nn.Parameter(torch.Tensor(loaded_prompt["shallow_prompt"]))
+
         
         if self.cfg.SOLVER.TOTAL_EPOCH != 0:
             self.save_prompt(epoch + 1) # @hlwong: save prompt after training

@@ -151,7 +151,7 @@ class PromptedTransformer(Transformer):
             if "shallow_prompt" in saved_prompt and self.prompt_config.DEEP: 
                 raise ValueError("Pretrained-prompt with deep not supported")
             # self.prompt_embeddings = nn.Parameter(torch.tensor(saved_prompt["shallow_prompt"]))
-            self.prompt_embeddings = nn.Parameter(saved_prompt["shallow_prompt"])
+            self.prompt_embeddings = nn.Parameter(torch.Tensor(saved_prompt["shallow_prompt"]))
             print("PROMPT-CONFIG-INIT: pretrained-prompt: succesfully loaded saved prompt") 
         elif self.prompt_config.INITIATION == "final-cls":
             # use final cls-token embds for all prompts
